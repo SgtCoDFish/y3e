@@ -2,19 +2,6 @@
 Y3E is an unofficial Nintendo Game Boy emulation library, packaged together with an SDL2 backend which together create an emulator.
 It can read ROM files (.gb) from original cartridges and execute them, with complete support for all instructions and with mostly-correct video and audio handling.
 
-# Running Binaries
-In the "binaries/" folder there are binaries for several release platforms:
-
-- Ubuntu (14.04, 15.10, 16.04)
-- Raspberry Pi 2
-- Windows 10
-
-The Windows binaries are typical installers which will install all dependencies and place a shortcut on your desktop. Be sure to download the correct version for your OS (32 or 64-bit).
-
-On Ubuntu, you'll need to have the libsdl2-2.0.0 package (or equivalent) installed.
-
-On Raspberry Pi 2 you'll need to compile SDL2 manually and enable access to `/dev/vhchiq`, both of which are detailed below.
-
 ## Usage
 Y3E supports both keyboard input and game controller input (tested with the XBox 360 USB controller).
 
@@ -98,7 +85,7 @@ Y3E has several other possible CMake options which can be passed in when project
   Forces Y3E to use its included, local version of rapidjson. If set to "off", and a system installed version of rapidjson is found, the system version will be used instead.
 - `Y3E_FORCE_QUIT`   
   Changes the functionality of requesting an exit in the emulator (e.g. pressing escape on a keyboard using the SDL2 backend). If set to "ON", requesting an exit will immediately force the emulator to quit without prompting for confirmation. This is recommended on the Raspberry Pi where it may not be possible to display a confirmation window, leaving no possibility of exiting a full screen instance of Y3E. 
-- `Y3E_RPI`...
+- `Y3E_RPI`   
   Build with Raspberry Pi specfic enhancements for audio
 
 ## Dependencies
@@ -185,91 +172,3 @@ cmake ..
 make -j4
 sudo make install
 ```
-
-# Files Part of Y3E
-## include/
-AudioHandler.hpp
-BatteryHandler.hpp
-cpp14.hpp
-Emulator.hpp
-GPU.hpp
-InputManager.hpp
-InstructionParser.hpp
-Instructions.hpp
-InterruptHandler.hpp
-MemoryManager.hpp
-PaletteManager.hpp
-PlatformTools.hpp
-Registers.hpp
-Renderer.hpp
-ROM.hpp
-ROMParser.hpp
-SerialHandler.hpp
-Sprite.hpp
-StackHandler.hpp
-StateManager.hpp
-Tile.hpp
-
-## src/
-AudioHandler.cpp
-BatteryHandler.cpp
-Emulator.cpp
-GPU.cpp
-InputManager.cpp
-InstructionParser.cpp
-Instructions.cpp
-InterruptHandler.cpp
-MemoryManager.cpp
-PaletteManager.cpp
-Registers.cpp
-Renderer.cpp
-ROM.cpp
-ROMParser.cpp
-SerialHandler.cpp
-Sprite.cpp
-StackHandler.cpp
-StateManager.cpp
-Tile.cpp
-instructionImpl/Arithmetic16BitInstructions.cpp
-instructionImpl/Arithmetic8BitInstructions.cpp
-instructionImpl/JumpInstructions.cpp
-instructionImpl/Load16BitInstructions.cpp
-instructionImpl/Load8BitInstructions.cpp
-instructionImpl/MiscInstructions.cpp
-instructionImpl/RotationInstructions.cpp
-
-## SDL2 Backend
-SDLAudioHandler.cpp
-SDLAudioHandler.hpp
-SDLEmulator.cpp
-SDLEmulator.hpp
-SDLInputManager.cpp
-SDLInputManager.hpp
-SDLmain.cpp
-SDLPlatformTools.cpp
-SDLPlatformTools.hpp
-SDLRenderer.cpp
-SDLRenderer.hpp
-
-## External Libraries/Code
-### GBSndEmu Audio Library
-GBSndEmu/*
-GBSndDemo/*
-
-### rapidjson
-include/rapidjson/*
-
-### miniz
-include/miniz.c
-
-### tinyfiledialogs
-include/tinyfiledialogs.h
-src/tinyfiledialogs.c
-
-### SXXDL
-SDL2/APG/SXXDL.hpp
-SDL2/APG/SXXDL.cpp
-
-### MSVC IO fix for Visual Studio 2015
-vs2015_io_fix.cpp
-
