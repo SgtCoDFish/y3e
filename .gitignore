@@ -1,0 +1,11 @@
+build*
+
+roms/
+
+.project
+.cproject
+.settings/*
+.settings
+
+git.exe.stackdump
+sh.exe.stackdump
