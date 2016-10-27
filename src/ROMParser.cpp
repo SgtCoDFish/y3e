@@ -111,7 +111,7 @@ ROMHeader GBROMParser::parseHeader(std::ifstream &f) {
 		}
 	}
 
-	ret.gameName = std::move(ss.str());
+	ret.gameName = ss.str();
 
 	// 0x0143
 	uint8_t isGBC = uint8_t(f.get());
