@@ -21,9 +21,9 @@ The following extra keys are also supported:
  - "-"   
  Decrease Volume
  - Control + <1-9>   
- Save game state file 1-9 for the loaded game (*)
+ Save game state file 1-9 for the loaded game
  - Alt + <1-9>   
- Load game state file 1-9 for the loaded game (*)
+ Load game state file 1-9 for the loaded game
  - F1 - F4   
  Set the frame rate limited to n times 60 fps; e.g. F2 sets the limit to 120fps, double speed.
  - F12   
@@ -33,8 +33,6 @@ The following extra keys are also supported:
  - Control + P   
  Force a save of the battery file. This might overwrite your data!
  
- (*) Regarding save states: see "Y3E Usage Notes"
-
 ## Supported Games
 The following games have been extensively tested and should work well:
  - Tetris
